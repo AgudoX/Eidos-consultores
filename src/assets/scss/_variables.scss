@@ -1,0 +1,61 @@
+$primary-color: #ffffff;
+$secondary-color: #00bcd6;
+
+$text-color: #2b265b;
+$dark-theme-text-color: white;
+
+$background-color: #3560ab;
+$dark-theme-background-color: #343541;
+$dark-theme-background-color-footer: #191919;
+
+//Añadir dark
+
+$base-font-size: 1rem;
+$header-size: 1.3rem;
+$button-size: 1.2rem;
+
+$spacing: 0rem;
+$border-radius: 1rem;
+
+$breakpoint-small: 500px;
+$breakpoint-medium: 740px;
+$breakpoint-large: 1100px;
+
+$text-shadow: 1px 1px 2px gray;
+
+//MIXINS
+@mixin font($family, $weight, $size, $color) {
+  font-family: $family;
+  font-weight: $weight;
+  font-size: $size;
+  color: $color;
+}
+
+@mixin transition($properties, $duration) {
+  transition: $properties $duration ease-in-out;
+}
+
+@mixin animation($name, $duration, $timing-function) {
+  animation: $name $duration $timing-function;
+}
+
+@mixin box-shadow($x, $y, $blur, $color) {
+  box-shadow: $x $y $blur $color;
+}
+
+@mixin media-query($breakpoint) {
+  @media screen and (min-width: $breakpoint) {
+    @content;
+  }
+}
+
+@mixin gradient($start-color, $end-color) {
+  background: linear-gradient(to bottom, $start-color, $end-color);
+}
+
+@mixin flexbox($direction: row, $justify: flex-start, $align: stretch) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+}

@@ -1,0 +1,8 @@
+<h2>Ellos también confían en nosotros</h2>
+<section>
+  <article *ngFor="let company of this.portfolioArray">
+    <div>
+      <img [src]="company.url" alt="" />
+    </div>
+  </article>
+</section>

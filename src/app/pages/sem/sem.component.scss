@@ -1,0 +1,17 @@
+@use "../../../assets/scss/variables" as var;
+section {
+  @include var.flexbox(column, space-around, center);
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+h3 {
+  font-size: 1.4rem;
+  text-align: center;
+  margin-top: 50px;
+}
+@include var.media-query(var.$breakpoint-large) {
+  section {
+    @include var.flexbox(row, space-around);
+  }
+}

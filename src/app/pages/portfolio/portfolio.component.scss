@@ -1,0 +1,65 @@
+@use "../../../assets/scss/variables" as var;
+
+section {
+  @include var.flexbox(row, space-around, center);
+  flex-wrap: nowrap;
+  gap: 100px;
+  overflow-x: hidden;
+  margin-top: 20px;
+  width: 100vw;
+  height: 200px;
+}
+
+h2 {
+  margin: 40px auto;
+  margin-bottom: 0px;
+  text-align: center;
+  width: 80%;
+  text-shadow: 1px 1px 2px gray;
+}
+article {
+  height: 100px;
+  width: 200px;
+  border-radius: 20px;
+  animation: slide 70s linear infinite alternate;
+}
+
+img {
+  border-radius: 10px;
+  box-shadow: 4px 4px 1px black;
+  transition: 0.3s;
+  &:hover {
+    box-shadow: 7px 7px 1px black;
+    transform: translate(-3px, -3px);
+  }
+}
+
+.lottie {
+  width: 200px;
+  height: 200px;
+  margin: 0 auto;
+}
+
+@keyframes slide {
+  0% {
+    transform: translateX(+1650px);
+  }
+  100% {
+    transform: translateX(-1710px);
+  }
+}
+
+@include var.media-query(var.$breakpoint-large) {
+  article {
+    animation: slide2 70s linear infinite alternate;
+  }
+
+  @keyframes slide2 {
+    0% {
+      transform: translateX(1050px);
+    }
+    100% {
+      transform: translateX(-1050px);
+    }
+  }
+}

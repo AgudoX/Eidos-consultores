@@ -1,0 +1,45 @@
+@use "../../../assets/scss/variables" as var;
+
+footer {
+  background-color: var.$dark-theme-background-color-footer;
+  @include var.flexbox(column, center, center);
+  padding-bottom: 30px;
+  min-height: 100px;
+  font-size: 1.2rem;
+  color: white;
+}
+
+.phone {
+  padding: 20px;
+}
+p {
+  padding: 5px;
+  font-weight: bold;
+}
+
+a {
+  text-decoration: none;
+  font-weight: bold;
+  color: white;
+  padding-left: 8px;
+  transition: 0.4s;
+  &:hover {
+    color: var.$background-color;
+  }
+}
+
+mat-icon {
+  transition: 0.4s;
+  cursor: pointer;
+  &:hover {
+    color: var.$background-color;
+  }
+}
+
+@include var.media-query(var.$breakpoint-medium) {
+  footer {
+    @include var.flexbox(row, center, flex-start);
+    min-height: 120px;
+    gap: 40px;
+  }
+}

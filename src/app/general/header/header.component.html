@@ -1,0 +1,55 @@
+<header [darkMode]="this.darkMode">
+  <div class="flex">
+    <div class="logo">
+      <figure>
+        <img src="../../../assets/img/logo-web.png" alt="Logo" />
+      </figure>
+      <div class="logo-text">
+        <h2>EIDOS CONSULTORES</h2>
+        <small>El mundo te descubre</small>
+      </div>
+    </div>
+    <ul class="not-mobile">
+      <li [routerLink]="['/']" fragment="sem">SEM</li>
+      <li [routerLink]="['/']" fragment="seo">SEO</li>
+      <li [routerLink]="['/']" fragment="portfolio">Portfolio</li>
+      <li [routerLink]="['/']" fragment="contact">Contacto</li>
+    </ul>
+    <div class="icon">
+      <mat-slide-toggle
+        color="primary"
+        [(ngModel)]="this.darkMode"
+        (toggleChange)="toggleDarkMode()"
+      >
+      </mat-slide-toggle>
+      <mat-icon class="burger" (click)="toggleMobile(true)">menu</mat-icon>
+      <mat-icon class="moon" *ngIf="this.darkMode"> dark_mode </mat-icon>
+      <mat-icon class="sun" *ngIf="!this.darkMode"> light_mode </mat-icon>
+    </div>
+    <div class="mobile-menu" [ngClass]="{ 'no-mobile-menu': !this.isOpen }">
+      <mat-icon (click)="toggleMobile(false)">close</mat-icon>
+      <ul>
+        <li (click)="toggleMobile(false)" [routerLink]="['/']" fragment="sem">
+          SEM
+        </li>
+        <li (click)="toggleMobile(false)" [routerLink]="['/']" fragment="seo">
+          SEO
+        </li>
+        <li
+          (click)="toggleMobile(false)"
+          [routerLink]="['/']"
+          fragment="portfolio"
+        >
+          Portfolio
+        </li>
+        <li
+          (click)="toggleMobile(false)"
+          [routerLink]="['/']"
+          fragment="contact"
+        >
+          Contacto
+        </li>
+      </ul>
+    </div>
+  </div>
+</header>

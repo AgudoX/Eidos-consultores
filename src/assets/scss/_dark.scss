@@ -1,0 +1,24 @@
+@use "./variables" as var;
+
+@mixin dark {
+  background-color: #202123;
+  color: $dark-theme-text-color;
+  header {
+    background-color: var.$dark-theme-background-color;
+  }
+
+  footer {
+    background-color: var.$dark-theme-background-color-footer;
+  }
+
+  button:not(.mdc-switch) {
+    background-color: var.$dark-theme-background-color-footer;
+  }
+
+  article.sem {
+    border: 2px solid white;
+    box-shadow: 1px 1px 4px white;
+    border-radius: 15px;
+    background-color: var.$dark-theme-background-color-footer;
+  }
+}

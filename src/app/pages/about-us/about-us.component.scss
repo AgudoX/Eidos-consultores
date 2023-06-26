@@ -1,0 +1,36 @@
+@use "../../../assets/scss/variables" as var;
+
+section {
+  padding-top: 100px;
+}
+
+h3 {
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+.flex {
+  @include var.flexbox(column, center, center);
+}
+
+.lottie {
+  z-index: -1;
+}
+
+p {
+  font-size: 0.9rem;
+}
+
+@include var.media-query(var.$breakpoint-medium) {
+  .flex {
+    @include var.flexbox(row, center, center);
+  }
+
+  .lottie {
+    width: 40%;
+  }
+
+  .paragraph {
+    width: 60%;
+  }
+}

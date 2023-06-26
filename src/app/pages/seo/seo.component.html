@@ -1,0 +1,12 @@
+<div class="container">
+  <h2>
+    ¡Haz que tu sitio web brille en los motores de búsqueda con nuestros
+    servicios de SEO! ✨
+  </h2>
+  <section>
+    <app-seo-detail
+      *ngFor="let seoArticle of this.seoArray"
+      [seoArticle]="seoArticle"
+    ></app-seo-detail>
+  </section>
+</div>

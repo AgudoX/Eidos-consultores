@@ -1,0 +1,197 @@
+@use "../../../assets/scss/variables" as var;
+header {
+  position: fixed;
+  top: 0px;
+  left: 0;
+  width: 100%;
+  z-index: 9999;
+}
+
+.flex {
+  @include var.flexbox(row, space-between, center);
+  padding-top: 10px;
+  padding: 5px;
+  position: relative;
+}
+
+.logo {
+  @include var.flexbox(row, flex-start, center);
+}
+
+small {
+  font-style: italic;
+  text-shadow: 1px 1px 2px gray;
+}
+
+h2 {
+  font-size: 1rem;
+}
+img {
+  height: 40px;
+  width: 50px;
+  border-radius: 50%;
+}
+
+mat-icon {
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+.mobile-menu {
+  position: absolute;
+  background-color: var.$background-color;
+  color: white;
+  right: 0%;
+  width: 60%;
+  top: 0%;
+  height: 100vh;
+  transition: 0.5s;
+  z-index: 999;
+
+  mat-icon {
+    margin-left: 83%;
+    width: 30px;
+    height: 30px;
+    right: 0%;
+    &:hover {
+      color: var.$secondary-color;
+    }
+  }
+
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 20px;
+    li {
+      margin-bottom: 15px;
+      position: relative;
+      width: fit-content;
+      cursor: pointer;
+    }
+
+    li:after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 2px;
+      background: var.$secondary-color;
+
+      transform: scaleX(
+        0
+      ); // Cambiando este numero de 0 a 1 cambiamos el tamaño inicial de la linea
+      transform-origin: right;
+      transition: transform 250ms ease-in;
+    }
+
+    li:hover::after {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+  }
+}
+
+.no-mobile-menu {
+  width: 0%;
+  transition: 0.5s;
+}
+
+.not-mobile {
+  display: none;
+}
+
+mat-icon:is(.moon, .sun) {
+  display: none;
+}
+
+//Modifica el background detrás del icono cuando está deseleccionado.
+
+::ng-deep .mat-mdc-slide-toggle .mdc-switch:enabled .mdc-switch__track::before {
+  background-color: #ffe151 !important;
+}
+
+// Modifica el color del background del icono cuando está deseleccionado
+::ng-deep
+  .mat-mdc-slide-toggle
+  .mdc-switch.mdc-switch--unselected:enabled
+  .mdc-switch__icon {
+  fill: var(
+    --mdc-switch-unselected-icon-color,
+    var(--mdc-theme-on-primary, #fff)
+  );
+  background-color: #fba822 !important;
+  border-radius: 50%;
+}
+
+// Modifica el borde del icono cuando está a la izquierda o deseleccionado
+::ng-deep
+  .mat-mdc-slide-toggle
+  .mdc-switch.mdc-switch--unselected:enabled
+  .mdc-switch__handle::after {
+  background-color: none;
+  border: 2px solid #fba822;
+}
+
+@include var.media-query(var.$breakpoint-medium) {
+  .flex {
+    width: 100%;
+    margin: 0 auto;
+    max-width: 1000px;
+  }
+  h2 {
+    font-size: var.$header-size;
+  }
+  .not-mobile {
+    @include var.flexbox(row, center, center);
+    gap: 20px;
+    list-style: none;
+    font-weight: bold;
+
+    li {
+      margin-bottom: 15px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      position: relative;
+      width: fit-content;
+    }
+
+    li:after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 2px;
+      background: var.$secondary-color;
+
+      transform: scaleX(
+        0
+      ); // Cambiando este numero de 0 a 1 cambiamos el tamaño inicial de la linea
+      transform-origin: right;
+      transition: transform 250ms ease-in;
+    }
+
+    li:hover::after {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+  }
+
+  mat-icon.burger,
+  .mobile-menu {
+    display: none;
+  }
+
+  mat-icon:is(.moon, .sun) {
+    display: block;
+    font-size: 1.6rem;
+    padding: 4px;
+    height: 30px;
+    width: 30px;
+  }
+
+  .sun {
+    color: #fba822;
+  }
+}
